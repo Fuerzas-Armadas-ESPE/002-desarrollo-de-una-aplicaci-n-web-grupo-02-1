@@ -4,7 +4,7 @@ const path = require('path');
 const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
 
-// Configurar el transporter de Nodemailer
+// Configurar nodemailer
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -17,20 +17,7 @@ const transporter = nodemailer.createTransport({
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 const servidor = http.createServer((req, res) => {
-    /*if (req.method === 'GET' && req.url === '/') {
-        // Servir el archivo index.html
-        const filePath = path.join(__dirname, '..', 'index.html');
-        fs.readFile(filePath, (err, data) => {
-            if (err) {
-                res.statusCode = 500;
-                res.end('Error interno del servidor');
-            } else {
-                res.statusCode = 200;
-                res.setHeader('Content-Type', 'text/html');
-                res.end(data);
-            }
-        });
-    } else */if (req.method === 'POST' && req.url === '/send-email') {
+    if (req.method === 'POST' && req.url === '/send-email') {
         // Usar el middleware body-parser para analizar el cuerpo de la solicitud
         urlencodedParser(req, res, () => {
             const { name, email, message } = req.body;
