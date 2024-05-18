@@ -1,0 +1,17 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "enviar_mail_y_otros",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "mail"
+  ],
+  "author": "grupo_02",
+  "license": "ISC",
+  "dependencies": {
+    "nodemailer": "^6.9.13"
+  }
+}
